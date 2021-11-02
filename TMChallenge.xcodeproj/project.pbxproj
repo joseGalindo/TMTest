@@ -15,10 +15,25 @@
 		663C250E2731DEA200BA47FC /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C250D2731DEA200BA47FC /* Feed.swift */; };
 		663C25122731E33400BA47FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25112731E33400BA47FC /* APIClient.swift */; };
 		663C25152731E34000BA47FC /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25142731E34000BA47FC /* BaseURL.swift */; };
-		663C251C2731E9AB00BA47FC /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C251B2731E9AB00BA47FC /* libSDWebImage.a */; };
 		663C25222731ED6D00BA47FC /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25212731ED6D00BA47FC /* FeedsViewController.swift */; };
 		663C25262731ED8600BA47FC /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25252731ED8600BA47FC /* FeedsViewModel.swift */; };
+		663C252D2731F1D700BA47FC /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; };
+		663C252E2731F1D700BA47FC /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		663C252F2731F1D700BA47FC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				663C252E2731F1D700BA47FC /* SDWebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		663C24F02731D5A900BA47FC /* TMChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,9 +46,10 @@
 		663C250D2731DEA200BA47FC /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		663C25112731E33400BA47FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		663C25142731E34000BA47FC /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
-		663C251B2731E9AB00BA47FC /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = Resources/libSDWebImage.a; sourceTree = "<group>"; };
 		663C25212731ED6D00BA47FC /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		663C25252731ED8600BA47FC /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
+		663C252C2731F1D700BA47FC /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = TMChallenge/SupportingFiles/SDWebImage.framework; sourceTree = "<group>"; };
+		663C25352731F58900BA47FC /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = TMChallenge/SupportingFiles/Nuke.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663C251C2731E9AB00BA47FC /* libSDWebImage.a in Frameworks */,
+				663C252D2731F1D700BA47FC /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +69,7 @@
 			children = (
 				663C24F22731D5A900BA47FC /* TMChallenge */,
 				663C24F12731D5A900BA47FC /* Products */,
+				663C252B2731F1D700BA47FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,7 +98,6 @@
 			children = (
 				663C24F32731D5A900BA47FC /* AppDelegate.swift */,
 				663C24F52731D5A900BA47FC /* SceneDelegate.swift */,
-				663C251B2731E9AB00BA47FC /* libSDWebImage.a */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -155,6 +171,15 @@
 			path = Feeds;
 			sourceTree = "<group>";
 		};
+		663C252B2731F1D700BA47FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				663C25352731F58900BA47FC /* Nuke.framework */,
+				663C252C2731F1D700BA47FC /* SDWebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +190,7 @@
 				663C24EC2731D5A900BA47FC /* Sources */,
 				663C24ED2731D5A900BA47FC /* Frameworks */,
 				663C24EE2731D5A900BA47FC /* Resources */,
+				663C252F2731F1D700BA47FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,7 +406,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47588266MJ;
-				INFOPLIST_FILE = TMChallenge/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TMChallenge/SupportingFiles",
+				);
+				INFOPLIST_FILE = TMChallenge/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,7 +433,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47588266MJ;
-				INFOPLIST_FILE = TMChallenge/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TMChallenge/SupportingFiles",
+				);
+				INFOPLIST_FILE = TMChallenge/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
