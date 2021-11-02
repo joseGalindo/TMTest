@@ -9,20 +9,21 @@
 /* Begin PBXBuildFile section */
 		663C24F42731D5A900BA47FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C24F32731D5A900BA47FC /* AppDelegate.swift */; };
 		663C24F62731D5A900BA47FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C24F52731D5A900BA47FC /* SceneDelegate.swift */; };
-		663C24F82731D5A900BA47FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C24F72731D5A900BA47FC /* ViewController.swift */; };
 		663C24FB2731D5A900BA47FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663C24F92731D5A900BA47FC /* Main.storyboard */; };
 		663C24FD2731D5B400BA47FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663C24FC2731D5B400BA47FC /* Assets.xcassets */; };
 		663C25002731D5B400BA47FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663C24FE2731D5B400BA47FC /* LaunchScreen.storyboard */; };
 		663C250E2731DEA200BA47FC /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C250D2731DEA200BA47FC /* Feed.swift */; };
 		663C25122731E33400BA47FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25112731E33400BA47FC /* APIClient.swift */; };
 		663C25152731E34000BA47FC /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25142731E34000BA47FC /* BaseURL.swift */; };
+		663C251C2731E9AB00BA47FC /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C251B2731E9AB00BA47FC /* libSDWebImage.a */; };
+		663C25222731ED6D00BA47FC /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25212731ED6D00BA47FC /* FeedsViewController.swift */; };
+		663C25262731ED8600BA47FC /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25252731ED8600BA47FC /* FeedsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		663C24F02731D5A900BA47FC /* TMChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		663C24F32731D5A900BA47FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		663C24F52731D5A900BA47FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		663C24F72731D5A900BA47FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		663C24FA2731D5A900BA47FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		663C24FC2731D5B400BA47FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		663C24FF2731D5B400BA47FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +31,9 @@
 		663C250D2731DEA200BA47FC /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		663C25112731E33400BA47FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		663C25142731E34000BA47FC /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		663C251B2731E9AB00BA47FC /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = Resources/libSDWebImage.a; sourceTree = "<group>"; };
+		663C25212731ED6D00BA47FC /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		663C25252731ED8600BA47FC /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C251C2731E9AB00BA47FC /* libSDWebImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,17 +67,11 @@
 		663C24F22731D5A900BA47FC /* TMChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				663C251F2731EA8500BA47FC /* SupportingFiles */,
 				663C250B2731DCC500BA47FC /* PresentationLayer */,
 				663C250A2731DCBA00BA47FC /* CoreLayer */,
 				663C25092731DCB000BA47FC /* BusinessLayer */,
 				663C25082731DCA200BA47FC /* ApplicationLayer */,
-				663C24F32731D5A900BA47FC /* AppDelegate.swift */,
-				663C24F52731D5A900BA47FC /* SceneDelegate.swift */,
-				663C24F72731D5A900BA47FC /* ViewController.swift */,
-				663C24F92731D5A900BA47FC /* Main.storyboard */,
-				663C24FC2731D5B400BA47FC /* Assets.xcassets */,
-				663C24FE2731D5B400BA47FC /* LaunchScreen.storyboard */,
-				663C25012731D5B400BA47FC /* Info.plist */,
 			);
 			path = TMChallenge;
 			sourceTree = "<group>";
@@ -80,6 +79,9 @@
 		663C25082731DCA200BA47FC /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				663C24F32731D5A900BA47FC /* AppDelegate.swift */,
+				663C24F52731D5A900BA47FC /* SceneDelegate.swift */,
+				663C251B2731E9AB00BA47FC /* libSDWebImage.a */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -95,6 +97,7 @@
 		663C250A2731DCBA00BA47FC /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				663C251E2731EA6300BA47FC /* Resources */,
 				663C25102731E30E00BA47FC /* Network */,
 			);
 			path = CoreLayer;
@@ -103,6 +106,7 @@
 		663C250B2731DCC500BA47FC /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				663C25202731ED4E00BA47FC /* Feeds */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -122,6 +126,33 @@
 				663C25142731E34000BA47FC /* BaseURL.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		663C251E2731EA6300BA47FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				663C24FC2731D5B400BA47FC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		663C251F2731EA8500BA47FC /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				663C24F92731D5A900BA47FC /* Main.storyboard */,
+				663C24FE2731D5B400BA47FC /* LaunchScreen.storyboard */,
+				663C25012731D5B400BA47FC /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		663C25202731ED4E00BA47FC /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				663C25212731ED6D00BA47FC /* FeedsViewController.swift */,
+				663C25252731ED8600BA47FC /* FeedsViewModel.swift */,
+			);
+			path = Feeds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663C24F82731D5A900BA47FC /* ViewController.swift in Sources */,
+				663C25262731ED8600BA47FC /* FeedsViewModel.swift in Sources */,
+				663C25222731ED6D00BA47FC /* FeedsViewController.swift in Sources */,
 				663C250E2731DEA200BA47FC /* Feed.swift in Sources */,
 				663C25152731E34000BA47FC /* BaseURL.swift in Sources */,
 				663C24F42731D5A900BA47FC /* AppDelegate.swift in Sources */,
@@ -353,6 +385,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TMChallenge/ApplicationLayer/Resources",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -371,6 +407,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TMChallenge/ApplicationLayer/Resources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
