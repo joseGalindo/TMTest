@@ -13,6 +13,9 @@
 		663C24FB2731D5A900BA47FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663C24F92731D5A900BA47FC /* Main.storyboard */; };
 		663C24FD2731D5B400BA47FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663C24FC2731D5B400BA47FC /* Assets.xcassets */; };
 		663C25002731D5B400BA47FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663C24FE2731D5B400BA47FC /* LaunchScreen.storyboard */; };
+		663C250E2731DEA200BA47FC /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C250D2731DEA200BA47FC /* Feed.swift */; };
+		663C25122731E33400BA47FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25112731E33400BA47FC /* APIClient.swift */; };
+		663C25152731E34000BA47FC /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25142731E34000BA47FC /* BaseURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		663C24FC2731D5B400BA47FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		663C24FF2731D5B400BA47FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		663C25012731D5B400BA47FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663C250D2731DEA200BA47FC /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		663C25112731E33400BA47FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		663C25142731E34000BA47FC /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,10 @@
 		663C24F22731D5A900BA47FC /* TMChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				663C250B2731DCC500BA47FC /* PresentationLayer */,
+				663C250A2731DCBA00BA47FC /* CoreLayer */,
+				663C25092731DCB000BA47FC /* BusinessLayer */,
+				663C25082731DCA200BA47FC /* ApplicationLayer */,
 				663C24F32731D5A900BA47FC /* AppDelegate.swift */,
 				663C24F52731D5A900BA47FC /* SceneDelegate.swift */,
 				663C24F72731D5A900BA47FC /* ViewController.swift */,
@@ -65,6 +75,53 @@
 				663C25012731D5B400BA47FC /* Info.plist */,
 			);
 			path = TMChallenge;
+			sourceTree = "<group>";
+		};
+		663C25082731DCA200BA47FC /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		663C25092731DCB000BA47FC /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				663C250C2731DE7C00BA47FC /* Model */,
+			);
+			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		663C250A2731DCBA00BA47FC /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				663C25102731E30E00BA47FC /* Network */,
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		663C250B2731DCC500BA47FC /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		663C250C2731DE7C00BA47FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				663C250D2731DEA200BA47FC /* Feed.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		663C25102731E30E00BA47FC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				663C25112731E33400BA47FC /* APIClient.swift */,
+				663C25142731E34000BA47FC /* BaseURL.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +195,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				663C24F82731D5A900BA47FC /* ViewController.swift in Sources */,
+				663C250E2731DEA200BA47FC /* Feed.swift in Sources */,
+				663C25152731E34000BA47FC /* BaseURL.swift in Sources */,
 				663C24F42731D5A900BA47FC /* AppDelegate.swift in Sources */,
+				663C25122731E33400BA47FC /* APIClient.swift in Sources */,
 				663C24F62731D5A900BA47FC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
