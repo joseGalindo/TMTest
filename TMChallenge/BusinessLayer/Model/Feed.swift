@@ -7,25 +7,25 @@
 
 import Foundation
 
-struct GenericResponse<T: Decodable>: Decodable {
+struct GenericResponse<T: Codable>: Codable {
     let kind: String
     let data: T
 }
 
-struct  FeedResponseData {
+struct  FeedResponseData: Codable {
     let after: String
     let dist: Int
     let children: [GenericResponse<FeedData>]
     // has more properties but we don't need it for this
 }
 
-struct FeedData: Decodable {
+struct FeedData: Codable {
     let title: String
     let numComments: Int
     let score: Int
     let thumbnail: String
-    let thumbnail_width: Int
-    let thumbnail_height: Int
+    let thumbnailWidth: Int?
+    let thumbnailHeight: Int?
 }
 
 

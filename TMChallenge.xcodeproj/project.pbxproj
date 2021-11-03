@@ -19,6 +19,7 @@
 		663C25262731ED8600BA47FC /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C25252731ED8600BA47FC /* FeedsViewModel.swift */; };
 		663C252D2731F1D700BA47FC /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; };
 		663C252E2731F1D700BA47FC /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		663C253E2731FF1500BA47FC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C253D2731FF1500BA47FC /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		663C25252731ED8600BA47FC /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		663C252C2731F1D700BA47FC /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = TMChallenge/SupportingFiles/SDWebImage.framework; sourceTree = "<group>"; };
 		663C25352731F58900BA47FC /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = TMChallenge/SupportingFiles/Nuke.framework; sourceTree = "<group>"; };
+		663C253D2731FF1500BA47FC /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				663C25212731ED6D00BA47FC /* FeedsViewController.swift */,
 				663C25252731ED8600BA47FC /* FeedsViewModel.swift */,
+				663C253D2731FF1500BA47FC /* FeedCell.swift */,
 			);
 			path = Feeds;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				663C250E2731DEA200BA47FC /* Feed.swift in Sources */,
 				663C25152731E34000BA47FC /* BaseURL.swift in Sources */,
 				663C24F42731D5A900BA47FC /* AppDelegate.swift in Sources */,
+				663C253E2731FF1500BA47FC /* FeedCell.swift in Sources */,
 				663C25122731E33400BA47FC /* APIClient.swift in Sources */,
 				663C24F62731D5A900BA47FC /* SceneDelegate.swift in Sources */,
 			);
@@ -415,10 +419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TMChallenge/ApplicationLayer/Resources",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -442,10 +443,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TMChallenge/ApplicationLayer/Resources",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.fciencias.TMChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
