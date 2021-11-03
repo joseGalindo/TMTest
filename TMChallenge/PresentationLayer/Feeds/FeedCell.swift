@@ -49,6 +49,7 @@ class FeedCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "rate")
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -56,7 +57,8 @@ class FeedCell: UITableViewCell {
     lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .fillProportionally
+        stack.distribution = .fillEqually
+        stack.spacing = 5
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -82,7 +84,6 @@ class FeedCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -98,44 +99,90 @@ extension FeedCell {
         self.contentView.addSubview(title)
         self.contentView.addSubview(feedImage)
         self.contentView.addSubview(stackView)
-        stackView.addArrangedSubview(commentsImg)
-        stackView.addArrangedSubview(numComments)
-        stackView.addArrangedSubview(rateImg)
-        stackView.addArrangedSubview(rate)
+        let leftContainer = UIView()
+        leftContainer.translatesAutoresizingMaskIntoConstraints = false
+        let rightContainer = UIView()
+        rightContainer.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(leftContainer)
+        stackView.addArrangedSubview(rightContainer)
+        leftContainer.addSubview(commentsImg)
+        leftContainer.addSubview(numComments)
+        rightContainer.addSubview(rateImg)
+        rightContainer.addSubview(rate)
         
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            title.topAnchor.constraint(equalTo: contentView.topAnchor),
-            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            title.bottomAnchor.constraint(equalTo: feedImage.topAnchor)
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 30),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            commentsImg.leadingAnchor.constraint(equalTo: leftContainer.leadingAnchor, constant: 10),
+            commentsImg.widthAnchor.constraint(equalToConstant: 20),
+            commentsImg.heightAnchor.constraint(equalToConstant: 20),
+            commentsImg.centerYAnchor.constraint(equalTo: leftContainer.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            numComments.leadingAnchor.constraint(equalTo: commentsImg.trailingAnchor, constant: 5),
+            numComments.trailingAnchor.constraint(equalTo: leftContainer.trailingAnchor, constant: 5),
+            numComments.topAnchor.constraint(equalTo: leftContainer.topAnchor),
+            numComments.bottomAnchor.constraint(equalTo: leftContainer.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            rateImg.leadingAnchor.constraint(equalTo: rightContainer.leadingAnchor),
+            rateImg.widthAnchor.constraint(equalToConstant: 20),
+            rateImg.heightAnchor.constraint(equalToConstant: 20),
+            rateImg.centerYAnchor.constraint(equalTo: rightContainer.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            rate.leadingAnchor.constraint(equalTo: rateImg.trailingAnchor, constant: 5),
+            rate.trailingAnchor.constraint(equalTo: rightContainer.trailingAnchor, constant: 5),
+            rate.topAnchor.constraint(equalTo: rightContainer.topAnchor),
+            rate.bottomAnchor.constraint(equalTo: rightContainer.bottomAnchor)
         ])
         
         imageConstraint = feedImage.heightAnchor.constraint(equalToConstant: 120)
         NSLayoutConstraint.activate([
-            feedImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            feedImage.bottomAnchor.constraint(equalTo: stackView.topAnchor),
-            feedImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            feedImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            feedImage.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -10),
+            feedImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
             imageConstraint
         ])
         
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 50),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            title.bottomAnchor.constraint(equalTo: feedImage.topAnchor, constant: -5)
         ])
     }
     
     func updateValues() {
         guard let feed = feed else { return }
         title.text = feed.data.title
-        numComments.text = String(feed.data.numComments)
-        rate.text = String(feed.data.score)
-        guard let url = URL(string: feed.data.thumbnail) else {
-//            imageConstraint.constant = 0
+        numComments.text = "Comments: \(feed.data.numComments)"
+        rate.text = "Score: \(feed.data.score)"
+        
+        if feed.data.thumbnail == "self" {
+            imageConstraint.constant = 0
+            layoutIfNeeded()
             return
         }
+        guard let url = URL(string: feed.data.thumbnail) else {
+            imageConstraint.constant = 0
+            layoutIfNeeded()
+            return
+        }
+        
+        SDWebImageManager.shared.loadImage(with: url, options: .continueInBackground, progress: nil) { (image, data, error, cacheTYpe, finished, url) in
+            
+        }
         feedImage.sd_setImage(with: url, completed: nil)
+        layoutIfNeeded()
     }
 }
 
