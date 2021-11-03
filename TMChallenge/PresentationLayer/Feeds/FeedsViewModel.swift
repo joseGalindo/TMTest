@@ -67,7 +67,6 @@ class FeedsViewModelImplementation: FeedsViewModel {
                     self.afterLink = response.data.after
                     return .success(response.data.children)
                 case .failure(let error):
-                    print("\(error)")
                     return .failure(error)
                 }
             }

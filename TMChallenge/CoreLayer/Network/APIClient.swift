@@ -43,7 +43,6 @@ final class APIClient {
             .decode(type: T.self, decoder: decoder)
             .map({ Result.success($0) })
             .catch({ error -> AnyPublisher<Result<T, APIError>, Never> in
-                print("\(error)")
                 return Just(Result.failure(APIError.jsonDecodingError)).eraseToAnyPublisher()
             })
             .eraseToAnyPublisher()
