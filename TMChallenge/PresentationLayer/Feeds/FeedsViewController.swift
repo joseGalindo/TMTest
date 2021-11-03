@@ -27,7 +27,7 @@ class FeedsViewController: UITableViewController {
 
         setupBindings()
         viewModel.viewDidLoad.send()
-        
+    
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.register(FeedCell.self, forCellReuseIdentifier: FeedCell.reuseIdentifier)

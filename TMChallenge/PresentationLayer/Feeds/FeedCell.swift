@@ -66,8 +66,6 @@ class FeedCell: UITableViewCell {
         return stack
     }()
     
-    var imageConstraint: NSLayoutConstraint!
-    
     // Properties
     var feed: GenericResponse<FeedData>? {
         didSet {
@@ -117,7 +115,7 @@ extension FeedCell {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 30),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
@@ -148,12 +146,11 @@ extension FeedCell {
             rate.bottomAnchor.constraint(equalTo: rightContainer.bottomAnchor)
         ])
         
-        imageConstraint = feedImage.heightAnchor.constraint(equalToConstant: 100)
         NSLayoutConstraint.activate([
             feedImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             feedImage.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -5),
             feedImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            imageConstraint
+            feedImage.heightAnchor.constraint(equalToConstant: 120)
         ])
         
         NSLayoutConstraint.activate([
