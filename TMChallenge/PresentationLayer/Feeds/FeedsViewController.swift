@@ -10,34 +10,6 @@ import Combine
 
 class FeedsViewController: UITableViewController {
     
-    // MARK: - UI
-    lazy var loadingView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        blur.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(blur)
-        NSLayoutConstraint.activate([
-            blur.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            blur.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            blur.topAnchor.constraint(equalTo: view.topAnchor),
-            blur.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        let activity = UIActivityIndicatorView(style: .large)
-        activity.color = .white
-        activity.translatesAutoresizingMaskIntoConstraints = false
-        blur.contentView.addSubview(activity)
-        NSLayoutConstraint.activate([
-            activity.centerXAnchor.constraint(equalTo: blur.contentView.centerXAnchor),
-            activity.centerYAnchor.constraint(equalTo: blur.contentView.centerYAnchor),
-            activity.widthAnchor.constraint(equalToConstant: 20),
-            activity.heightAnchor.constraint(equalToConstant: 20),
-        ])
-        return view
-    }()
-    
     private let viewModel: FeedsViewModel
     private var bindings = Set<AnyCancellable>()
     
@@ -56,16 +28,8 @@ class FeedsViewController: UITableViewController {
         setupBindings()
         viewModel.viewDidLoad.send()
         
-        self.view.addSubview(loadingView)
-        NSLayoutConstraint.activate([
-            loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            loadingView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5),
-            loadingView.heightAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5)
-        ])
-        
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 50
         tableView.register(FeedCell.self, forCellReuseIdentifier: FeedCell.reuseIdentifier)
     }
     

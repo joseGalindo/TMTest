@@ -57,7 +57,7 @@ class FeedsViewModelImplementation: FeedsViewModel {
     private func getFeeds() {
         var params: APIClient.Parameters = [:]
         if !afterLink.isEmpty {
-            params["after"] = ""
+            params["after"] = afterLink
         }
         self.state.send(.loading)
         APIClient.shared.get(endpoint: .feeds, parameters: params)

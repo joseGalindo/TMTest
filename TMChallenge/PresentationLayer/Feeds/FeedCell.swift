@@ -13,6 +13,7 @@ class FeedCell: UITableViewCell {
     // UI
     lazy var feedImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "placeholder")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -21,6 +22,8 @@ class FeedCell: UITableViewCell {
     lazy var title: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -145,11 +148,11 @@ extension FeedCell {
             rate.bottomAnchor.constraint(equalTo: rightContainer.bottomAnchor)
         ])
         
-        imageConstraint = feedImage.heightAnchor.constraint(equalToConstant: 120)
+        imageConstraint = feedImage.heightAnchor.constraint(equalToConstant: 100)
         NSLayoutConstraint.activate([
             feedImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            feedImage.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -10),
-            feedImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+            feedImage.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -5),
+            feedImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             imageConstraint
         ])
         
@@ -167,31 +170,16 @@ extension FeedCell {
         numComments.text = "Comments: \(feed.data.numComments)"
         rate.text = "Score: \(feed.data.score)"
         
-        if feed.data.thumbnail == "self" {
-            imageConstraint.constant = 0
-            layoutIfNeeded()
+        if feed.data.thumbnail == "self" ||
+            feed.data.thumbnail == "default" {
+            feedImage.image = UIImage(named: "placeholder")
             return
         }
         guard let url = URL(string: feed.data.thumbnail) else {
-            imageConstraint.constant = 0
-            layoutIfNeeded()
             return
         }
-        
-        SDWebImageManager.shared.loadImage(with: url, options: .continueInBackground, progress: nil) { (image, data, error, cacheTYpe, finished, url) in
-            
+        SDWebImageManager.shared.loadImage(with: url, options: .continueInBackground, progress: nil) { [weak self] (image, data, error, cacheTYpe, finished, url) in
+            self?.feedImage.image = image
         }
-        feedImage.sd_setImage(with: url, completed: nil)
-        layoutIfNeeded()
     }
 }
-
-protocol ReuseIdentifiable: AnyObject {
-    static var reuseIdentifier: String { get }
-}
-
-extension ReuseIdentifiable {
-    static var reuseIdentifier: String { .init(describing: self) }
-}
-
-extension UITableViewCell: ReuseIdentifiable {}

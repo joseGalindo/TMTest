@@ -20,6 +20,7 @@
 		663C252D2731F1D700BA47FC /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; };
 		663C252E2731F1D700BA47FC /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 663C252C2731F1D700BA47FC /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		663C253E2731FF1500BA47FC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C253D2731FF1500BA47FC /* FeedCell.swift */; };
+		66AEE22427332B7300CA3FE9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEE22327332B7300CA3FE9 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		663C252C2731F1D700BA47FC /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = TMChallenge/SupportingFiles/SDWebImage.framework; sourceTree = "<group>"; };
 		663C25352731F58900BA47FC /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = TMChallenge/SupportingFiles/Nuke.framework; sourceTree = "<group>"; };
 		663C253D2731FF1500BA47FC /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		66AEE22327332B7300CA3FE9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		663C250A2731DCBA00BA47FC /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				66AEE22227332B6000CA3FE9 /* Extension */,
 				663C251E2731EA6300BA47FC /* Resources */,
 				663C25102731E30E00BA47FC /* Network */,
 			);
@@ -181,6 +184,14 @@
 				663C252C2731F1D700BA47FC /* SDWebImage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66AEE22227332B6000CA3FE9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				66AEE22327332B7300CA3FE9 /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AEE22427332B7300CA3FE9 /* Extension.swift in Sources */,
 				663C25262731ED8600BA47FC /* FeedsViewModel.swift in Sources */,
 				663C25222731ED6D00BA47FC /* FeedsViewController.swift in Sources */,
 				663C250E2731DEA200BA47FC /* Feed.swift in Sources */,
