@@ -40,10 +40,10 @@ final class APIClient {
         request.httpMethod = "GET"
         return URLSession.shared.dataTaskPublisher(for: request)
             .map({ $0.data})
-            //            .print()
             .decode(type: T.self, decoder: decoder)
             .map({ Result.success($0) })
             .catch({ error -> AnyPublisher<Result<T, APIError>, Never> in
+                print("\(error)")
                 return Just(Result.failure(APIError.jsonDecodingError)).eraseToAnyPublisher()
             })
             .eraseToAnyPublisher()

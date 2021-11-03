@@ -8,5 +8,5 @@
 import Foundation
 
 struct BasicURLs {
-    static let baseURL = " http://www.reddit.com"
+    static let baseURL = "http://www.reddit.com"
 }
